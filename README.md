@@ -32,3 +32,18 @@ docker run -p 4222:4222 swarm-natcore
 - Compatible with NATS clients in other pods
 - Supports clustering if configured (future enhancement)
 - Maintains predictable performance for steady throughput
+
+## Completeness grade: C
+
+This is the swarm's NATS core packaging (Dockerfile and configuration).
+It is graded C because the running core depends on deployment choices
+and credentials that live outside the repo, named below, and it ships
+no tests of its own.
+
+## Not in code
+
+- The deployed NATS server's live configuration, clustering and
+  credentials: the user's infrastructure and secret stores, never in
+  this repo.
+- The other swarm pods that connect to this core: their own repos
+  (swarm-gateway, swarm-cronctl, swarm-vaultctl, swarm-logger).
